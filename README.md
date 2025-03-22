@@ -45,38 +45,32 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/array-base-fill
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-fill = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/array-base-fill@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var fill = require( 'path/to/vendor/umd/array-base-fill/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-base-fill@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.fill;
-})();
-</script>
+var fill = require( '@stdlib/array-base-fill' );
 ```
 
 #### fill( x, value, start, end )
@@ -111,6 +105,8 @@ var bool = ( out === x );
 
 -   If provided an array-like object without a `fill` method, the function manually sets input array elements to a provided fill value.
 
+-   Negative `start` and `end` indices are resolved to positive indices by counting from the end of the array with `-1` corresponding to the last indexed element.
+
 -   The function **mutates** the input array.
 
 </section>
@@ -125,15 +121,10 @@ var bool = ( out === x );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-base-zero-to@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-base-fill@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var Float64Array = require( '@stdlib/array-float64' );
+var zeroTo = require( '@stdlib/array-base-zero-to' );
+var fill = require( '@stdlib/array-base-fill' );
 
 var x = new Float64Array( zeroTo( 6 ) );
 // returns <Float64Array>[ 0.0, 1.0, 2.0, 3.0, 4.0, 5.0 ]
@@ -149,11 +140,6 @@ y = fill( x, 20.0, 2, 6 );
 
 y = fill( x, 30.0, 2, 4 );
 // returns <Float64Array>[ 0.0, 0.0, 30.0, 30.0, 20.0, 20.0 ]
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
