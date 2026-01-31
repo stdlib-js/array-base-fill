@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/array-base-fill",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Fill all elements within a portion of an array with a specified value.",
   "license": "Apache-2.0",
   "author": {
